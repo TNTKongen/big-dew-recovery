@@ -1,5 +1,5 @@
 
-const statusStyles = {0: "btn-danger", 1: "btn-warning", 2: "btn-success"}
+const STATUS_STYLES = {0: "btn-danger", 1: "btn-warning", 2: "btn-success"}
 
 let videosContainer = document.querySelector("#videos")
 
@@ -11,16 +11,14 @@ let videos = [
 
 function addVideo(index) {
     let video_data = videos[index]
-    const statusCSS = statusStyles[video_data["status"]] + " btn video"
+    const statusCSS = STATUS_STYLES[video_data["status"]] + " btn video"
 
     html = `
-    <button type="button" class="`+statusCSS+`">
-        <div class="video-column">
-            <h3>`+video_data["title"]+`</h3>
-            <p>Status: </p>
-        </div>
-        <p>TEST</p>
-
+    <button type="button" class="${statusCSS}">
+        <img class="video-img"/>
+        <h3 class="video-title">${video_data["title"]}</h3>
+        <p class="video-info">Creator: </p>
+        <p class="video-info">Status: </p>
     </button>`
 
     videosContainer.innerHTML += html

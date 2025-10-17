@@ -1,15 +1,30 @@
+#videos {
+    display: flex;
+    flex-direction: row;
+    gap: 5pt;
+    align-items: center;
+}
 .video {
     display: flex !important;
-    
+    flex-direction: column;
+    gap: 1pt;
+    padding: 10pt !important;
+    padding-bottom: 15pt !important;
 }
+.video-info {
+    margin-bottom: 0px;
+    text-align: start;
+}
+.video-img {
+    height: 100%;
+    border-radius: 5pt;
+}
+
+
+
 .video-column {
     display: flex;
     flex-direction: column;
     width: 100%;
     text-align: left;
-}
-#videos {
-    display: flex;
-    flex-direction: column;
-    gap: 5pt;
 }
