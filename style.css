@@ -1,0 +1,15 @@
+.video {
+    display: flex !important;
+    
+}
+.video-column {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: left;
+}
+#videos {
+    display: flex;
+    flex-direction: column;
+    gap: 5pt;
+}
