@@ -20,6 +20,7 @@ function addVideo(index) {
 };
 
 async function refreshVideos(query=false) {
+    videosContainer.innerHTML = ""
     if (query) {
         videos = await getVideos()
     } else {
@@ -29,7 +30,6 @@ async function refreshVideos(query=false) {
         }
     }
     
-    videosContainer.innerHTML = ""
     for (let i = 0; i < videos.length; i++) {
         addVideo(i)
     }
