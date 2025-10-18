@@ -1,17 +1,12 @@
 
-const STATUS_STYLES = {0: "btn-danger", 1: "btn-warning", 2: "btn-success"}
+const STATES_STYLES = {0: "btn-danger", 1: "btn-warning", 2: "btn-success"};
 
-let videosContainer = document.querySelector("#videos")
-
-let videos = [
-    {"title": "Hello world!", "status": 0},
-    {"title": "Big dew", "status": 1},
-    {"title": "Haha yes", "status": 2}
-]
+let videosContainer = document.querySelector("#videos");
+let videos = [];
 
 function addVideo(index) {
-    let video_data = videos[index]
-    const statusCSS = STATUS_STYLES[video_data["status"]] + " btn video"
+    let video_data = videos[index];
+    const statusCSS = STATES_STYLES[video_data["state"]] + " btn video";
 
     html = `
     <button type="button" class="${statusCSS}">
@@ -19,11 +14,26 @@ function addVideo(index) {
         <h3 class="video-title">${video_data["title"]}</h3>
         <p class="video-info">Creator: </p>
         <p class="video-info">Status: </p>
-    </button>`
+    </button>`;
 
-    videosContainer.innerHTML += html
+    videosContainer.innerHTML += html;
+};
+
+async function refreshVideos(query=false) {
+    if (query) {
+        videos = await getVideos()
+    } else {
+        videos = JSON.parse(sessionStorage.getItem("videos_cache"))
+        if (videos === null) {
+            videos = await getVideos()
+        }
+    }
+    
+    videosContainer.innerHTML = ""
+    for (let i = 0; i < videos.length; i++) {
+        addVideo(i)
+    }
+    sessionStorage.setItem("videos_cache", JSON.stringify(videos))
 }
 
-addVideo(0)
-addVideo(1)
-addVideo(2)
+refreshVideos(false);
