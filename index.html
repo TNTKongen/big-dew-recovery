@@ -4,6 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+        <!--Style imports-->
         <link href="style.css" rel="stylesheet" />
         <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
@@ -17,7 +18,7 @@
             integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
             crossorigin="anonymous"
         ></script>
-
+        <!--Google icons-->
         <link
             rel="stylesheet"
             href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=refresh"
@@ -30,15 +31,53 @@
         <h1>BIG DEW RECOVERY</h1>
         <p>Hello!</p>
 
-        <div>
+        <!--Videos section-->
+
+        <div class="videos-panel bg-secondary-subtle">
             <button class="btn btn-secondary" onclick="refreshVideos(true)">
                 <span class="material-symbols-outlined">refresh</span>
             </button>
-            <div id="videos" class="bg-secondary-subtle"></div>
-            <button class="btn btn-primary" id="add-video-btn">
-                Add video
-            </button>
+            <div id="videos"></div>
         </div>
+
+        <button class="btn btn-primary" id="add-video-btn">Add video</button>
+
+        <!--Add video popup-->
+
+        <div class="popup bg-dark text-white">
+            <h3>New video</h3>
+            <form class="popup-form">
+                <label for="new-video-url" class="form-label">URL: </label>
+                <input type="url" id="new-video-url" name="new-video-url" class="form-control" autocomplete="off" />
+
+                <label for="new-video-title" class="form-label">Video title: </label>
+                <input type="text" id="new-video-title" name="new-video-title" class="form-control" autocomplete="off" />
+
+                <label for="new-video-notes" class="form-label">Notes: </label>
+                <textarea id="new-video-notes" name="new-video-notes" class="form-control"></textarea>
+
+                <p><b>Not recovered</b> = No infomation known</p>
+                <p><b>Some recovered</b> = Some of the video found</p>
+                <p><b>All recovered</b> = Full video has been found</p>
+                <div class="btn-group w-100">
+                    <input class="btn-check" type="radio" name="new-video-state" id="new-video-state-0" value="0" />
+                    <label class="btn btn-outline-danger" for="new-video-state-0">Not recovered</label>
+                    <input class="btn-check" type="radio" name="new-video-state" id="new-video-state-1" value="1" />
+                    <label class="btn btn-outline-warning" for="new-video-state-1">Some recovered</label>
+                    <input class="btn-check" type="radio" name="new-video-state" id="new-video-state-2" value="2" />
+                    <label class="btn btn-outline-success" for="new-video-state-2">All recovered</label>
+                </div>
+
+                <p>NOTE: You can add more info after creating.</p>
+
+                <div class="btn-group w-100">
+                    <button type="submit" class="btn btn-primary">Create</button>
+                    <button type="reset" class="btn btn-secondary">Cancel</button>
+                </div>
+            </form>
+        </div>
+
+        <!--Scripts-->
 
         <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
         <script src="supabase.js"></script>
