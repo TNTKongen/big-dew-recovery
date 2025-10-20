@@ -2,6 +2,8 @@
 const STATES_STYLES = {0: "btn-danger", 1: "btn-warning", 2: "btn-success"};
 
 let videosContainer = document.querySelector("#videos");
+let newVideoPopup = document.querySelector("#add-video-popup")
+// let btnAddVideo = document.querySelector("#add-video-btn")
 let videos = [];
 
 function addVideo(index) {
@@ -34,6 +36,15 @@ async function refreshVideos(query=false) {
         addVideo(i)
     }
     sessionStorage.setItem("videos_cache", JSON.stringify(videos))
+}
+
+function setOpenPopup(popupId, setOpen) {
+    let popup = document.getElementById(popupId);
+    if (setOpen) {
+        popup.classList.remove("closed-popup")
+    } else {
+        popup.classList.add("closed-popup")
+    }
 }
 
 refreshVideos(false);

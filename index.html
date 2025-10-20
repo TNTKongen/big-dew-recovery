@@ -40,13 +40,13 @@
             <div id="videos"></div>
         </div>
 
-        <button class="btn btn-primary" id="add-video-btn">Add video</button>
+        <button class="btn btn-primary" id="add-video-btn" onclick="setOpenPopup('add-video-popup', true)">Add video</button>
 
         <!--Add video popup-->
 
-        <div class="popup bg-dark text-white">
+        <div class="popup bg-dark text-white" id="add-video-popup">
             <h3>New video</h3>
-            <form class="popup-form">
+            <form class="popup-form" action="">
                 <label for="new-video-url" class="form-label">URL: </label>
                 <input type="url" id="new-video-url" name="new-video-url" class="form-control" autocomplete="off" />
 
@@ -60,11 +60,11 @@
                 <p><b>Some recovered</b> = Some of the video found</p>
                 <p><b>All recovered</b> = Full video has been found</p>
                 <div class="btn-group w-100">
-                    <input class="btn-check" type="radio" name="new-video-state" id="new-video-state-0" value="0" />
+                    <input class="btn-check" type="radio" name="new-video-state" id="new-video-state-0" value="0" required />
                     <label class="btn btn-outline-danger" for="new-video-state-0">Not recovered</label>
-                    <input class="btn-check" type="radio" name="new-video-state" id="new-video-state-1" value="1" />
+                    <input class="btn-check" type="radio" name="new-video-state" id="new-video-state-1" value="1" required />
                     <label class="btn btn-outline-warning" for="new-video-state-1">Some recovered</label>
-                    <input class="btn-check" type="radio" name="new-video-state" id="new-video-state-2" value="2" />
+                    <input class="btn-check" type="radio" name="new-video-state" id="new-video-state-2" value="2" required />
                     <label class="btn btn-outline-success" for="new-video-state-2">All recovered</label>
                 </div>
 
@@ -72,7 +72,7 @@
 
                 <div class="btn-group w-100">
                     <button type="submit" class="btn btn-primary">Create</button>
-                    <button type="reset" class="btn btn-secondary">Cancel</button>
+                    <button type="reset" class="btn btn-secondary" onclick="setOpenPopup('add-video-popup', false)">Cancel</button>
                 </div>
             </form>
         </div>
