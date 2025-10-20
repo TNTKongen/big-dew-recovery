@@ -40,14 +40,14 @@
             <div id="videos"></div>
         </div>
 
-        <button class="btn btn-primary" id="add-video-btn" onclick="setOpenPopup('add-video-popup', true)">Add video</button>
+        <button class="btn btn-primary" id="new-video-btn" onclick="setOpenPopup('new-video-popup', true)">Add video</button>
 
         <!--Add video popup-->
 
-        <div class="popup bg-dark text-white" id="add-video-popup">
+        <div class="popup bg-dark text-white" id="new-video-popup">
             <h3>New video</h3>
-            <form class="popup-form" action="">
-                <label for="new-video-url" class="form-label">URL: </label>
+            <form class="popup-form" id="new-video-form">
+                <label for="new-video-url" class="form-label">YouTube URL: </label>
                 <input type="url" id="new-video-url" name="new-video-url" class="form-control" autocomplete="off" />
 
                 <label for="new-video-title" class="form-label">Video title: </label>
@@ -56,7 +56,7 @@
                 <label for="new-video-notes" class="form-label">Notes: </label>
                 <textarea id="new-video-notes" name="new-video-notes" class="form-control"></textarea>
 
-                <p><b>Not recovered</b> = No infomation known</p>
+                <p><b>Not recovered</b> = None of the video has been found</p>
                 <p><b>Some recovered</b> = Some of the video found</p>
                 <p><b>All recovered</b> = Full video has been found</p>
                 <div class="btn-group w-100">
@@ -72,7 +72,7 @@
 
                 <div class="btn-group w-100">
                     <button type="submit" class="btn btn-primary">Create</button>
-                    <button type="reset" class="btn btn-secondary" onclick="setOpenPopup('add-video-popup', false)">Cancel</button>
+                    <button type="reset" class="btn btn-secondary" onclick="setOpenPopup('new-video-popup', false)">Cancel</button>
                 </div>
             </form>
         </div>
