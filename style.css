@@ -8,6 +8,7 @@ body {
 #videos {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     gap: 5pt;
     align-items: center;
 }
@@ -22,6 +23,7 @@ body {
     gap: 1pt;
     padding: 10pt !important;
     padding-bottom: 15pt !important;
+    
 }
 .video-info {
     margin-bottom: 0px;
@@ -52,7 +54,7 @@ body {
     z-index: 10;
     border-radius: 8pt;
     padding: 8pt;
-    box-shadow: 0pt 5pt 10pt 0pt rgba(0,0,0,0.3);
+    box-shadow: 0pt 3pt 10pt 5pt rgba(0,0,0,0.3);
 
     transition: transform 0.3s;
 }

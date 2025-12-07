@@ -38,11 +38,15 @@ async function refreshVideos(query=false) {
         };
     };
     
+    refreshVideosHTML();
+    sessionStorage.setItem("videos_cache", JSON.stringify(videos));
+};
+function refreshVideosHTML() {
+    videosContainer.innerHTML = "";
     for (let i = 0; i < videos.length; i++) {
         addVideoHTML(i);
     };
-    sessionStorage.setItem("videos_cache", JSON.stringify(videos));
-};
+}
 
 function setOpenPopup(popupId, setOpen) {
     let popup = document.getElementById(popupId);
@@ -65,13 +69,15 @@ newVideoForm.addEventListener("submit", async function(event) {
         formData.get("new-video-notes"),
         formData.get("new-video-state")
     );
+    console.log("Submit video data")
+    console.log(data)
     if (data == {}) {
         alert("Failed to add video (if you're seeing this, please tell me on signal)")
         setOpenPopup("new-video-popup", true);
         return
     }
     addVideoDataToVideos(data)
-    refreshVideos()
+    refreshVideosHTML()
     newVideoForm.reset();
 });
 
@@ -83,6 +89,8 @@ function addVideoDataToVideos(data) {
             break
         };
     };
+    sessionStorage.setItem("videos_cache", JSON.stringify(videos));
 };
 
+setOpenPopup("new-video-popup", false)
 refreshVideos(false);
